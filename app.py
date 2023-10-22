@@ -1,5 +1,6 @@
 from flask import Flask, request
 from dotenv import dotenv_values
+from flask_cors import CORS
 import openai, json
 
 
@@ -15,6 +16,7 @@ openai.api_key = config["OPENAI_API_KEY"]
  
 app = Flask(__name__)
 
+CORS(app)
 
 @app.route("/palette")
 def palette():
